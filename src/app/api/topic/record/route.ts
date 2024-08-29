@@ -21,6 +21,7 @@ export async function POST(request: NextRequest) {
 
         // 开启事务
         await prisma.$transaction(async (tx) => {
+            
             const oldRecord = await tx.record.findFirst({
                 where: {
                     topicId: topicId,
